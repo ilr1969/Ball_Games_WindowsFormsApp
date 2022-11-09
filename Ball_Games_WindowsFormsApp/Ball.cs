@@ -39,8 +39,6 @@ namespace Ball_Games_WindowsFormsApp
             int result = 0;
             foreach (var i in list)
             {
-                var r = form.Size.Width - i.Size / 2;
-                var t = form.Size.Height - i.Size / 2;
                 if (form.Size.Width - i.Size/2 >= i.yPos && i.Size / 2 <= i.yPos && form.Size.Height - i.Size / 2 >= i.xPos && i.Size / 2 <= i.xPos)
                 {
                     result++;
