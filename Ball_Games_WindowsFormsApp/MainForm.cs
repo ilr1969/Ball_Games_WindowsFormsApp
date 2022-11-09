@@ -20,21 +20,25 @@ namespace Ball_Games_WindowsFormsApp
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             ball = new Ball(this);
             ball.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             ballRandom = new BallRandom(this);
             ballRandom.Show();
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Button8_Click(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.Color.White;
+/*            foreach (var i in list)
+            {
+                i.Clear();
+            }*/
         }
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
@@ -43,7 +47,12 @@ namespace Ball_Games_WindowsFormsApp
             ballRandomMouseClick.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            CreateBalls();
+        }
+
+        private void CreateBalls()
         {
             list = new List<BallRandomSizable>();
             for (int i = 0; i < 10; i++)
@@ -60,12 +69,13 @@ namespace Ball_Games_WindowsFormsApp
             ballRandomSizable.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
+            CreateBalls();
             timer.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             if (list != null)
             {
@@ -78,7 +88,7 @@ namespace Ball_Games_WindowsFormsApp
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             timer.Stop();
             var Catched = ballRandomSizable.CheckLocations();
