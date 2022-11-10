@@ -49,15 +49,11 @@ namespace Ball_Class
             }
             return result;
         }
-        public bool CheckCatched(List<MoveBall> list, int x, int y)
+        public bool CheckCatched(int x, int y)
         {
-            foreach (var i in list)
+            if ((xPos - x) * (xPos - x) + (yPos - y) * (yPos - y) <= Size * Size)
             {
-                if ((i.xPos - x) * (i.xPos - x) + (i.yPos - y) * (i.yPos - y) <= i.Size * i.Size)
-                {
-                    i.Stop();
-                    return true;
-                }
+                return true;
             }
             return false;
         }

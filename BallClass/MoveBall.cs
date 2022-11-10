@@ -22,12 +22,17 @@ namespace Ball_Class
 
         public void Start()
         {
-            timer.Start();
+            timer.Enabled = true;
         }
 
         public void Stop()
         {
-            timer.Stop();
+            timer.Enabled = false;
+        }
+
+        public bool CheckMove()
+        {
+            return timer.Enabled;
         }
     }
 }

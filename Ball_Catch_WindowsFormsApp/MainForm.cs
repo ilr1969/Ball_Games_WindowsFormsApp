@@ -37,7 +37,7 @@ namespace Ball_Catch_WindowsFormsApp
             Catched = 0;
         }
 
-        private void timer_tick()
+        private void Timer_tick()
         {
             if (list != null)
             {
@@ -52,12 +52,15 @@ namespace Ball_Catch_WindowsFormsApp
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
-            MoveBall moveball = new MoveBall(this);
-            if (moveball.CheckCatched(list, e.X, e.Y))
+            foreach (var i in list)
             {
-                Catched++;
+                if (i.CheckMove() && i.CheckCatched(e.X, e.Y))
+                {
+                    i.Stop();
+                    Catched++;
+                }
+                label1.Text = $"Поймано: {Catched}";
             }
-            label1.Text = $"Поймано: {Catched}";
         }
     }
 }

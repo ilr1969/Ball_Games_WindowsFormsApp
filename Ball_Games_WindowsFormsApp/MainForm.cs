@@ -74,7 +74,7 @@ namespace BallClass
         {
             
             button5.Enabled = true;
-            button4.Enabled = false;
+            label1.Text = $"Поймано:";
             for (int i = 0; i < 10; i++)
             {
                 moveBall = new MoveBall(this);
@@ -92,7 +92,7 @@ namespace BallClass
                 list[i].Stop();
             }
             var Catched = moveBall.CheckLocations(list);
-            label1.Text = $"Поймано {Catched}";
+            label1.Text = $"Поймано: {Catched}";
         }
     }
 }
