@@ -1,5 +1,5 @@
 ﻿
-namespace Ball_Games_WindowsFormsApp
+namespace BallClass
 {
     partial class MainForm
     {
@@ -29,7 +29,6 @@ namespace Ball_Games_WindowsFormsApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -38,7 +37,6 @@ namespace Ball_Games_WindowsFormsApp
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -121,11 +119,6 @@ namespace Ball_Games_WindowsFormsApp
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.Button8_Click);
             // 
-            // timer
-            // 
-            this.timer.Interval = 10;
-            this.timer.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -170,7 +163,6 @@ namespace Ball_Games_WindowsFormsApp
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label1;
     }
 }

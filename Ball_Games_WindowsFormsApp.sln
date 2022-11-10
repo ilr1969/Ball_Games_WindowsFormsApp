@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball_Games_WindowsFormsApp", "Ball_Games_WindowsFormsApp\Ball_Games_WindowsFormsApp.csproj", "{569FCE40-9899-4A68-8E25-B0F9DC49AFCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball_Catch_WindowsFormsApp", "Ball_Catch_WindowsFormsApp\Ball_Catch_WindowsFormsApp.csproj", "{A1EA532C-E1A1-4AF8-9E58-297EFC35B5F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ball_Class", "BallClass\Ball_Class.csproj", "{32461963-67EF-4C16-8162-30B0C4BDB042}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{569FCE40-9899-4A68-8E25-B0F9DC49AFCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{569FCE40-9899-4A68-8E25-B0F9DC49AFCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{569FCE40-9899-4A68-8E25-B0F9DC49AFCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1EA532C-E1A1-4AF8-9E58-297EFC35B5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EA532C-E1A1-4AF8-9E58-297EFC35B5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EA532C-E1A1-4AF8-9E58-297EFC35B5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EA532C-E1A1-4AF8-9E58-297EFC35B5F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32461963-67EF-4C16-8162-30B0C4BDB042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32461963-67EF-4C16-8162-30B0C4BDB042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32461963-67EF-4C16-8162-30B0C4BDB042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32461963-67EF-4C16-8162-30B0C4BDB042}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
