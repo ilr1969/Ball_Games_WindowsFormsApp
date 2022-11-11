@@ -10,20 +10,28 @@ namespace Ball_Class
         public Form form;
         public int xPos = 150;
         public int yPos = 150;
+        public Timer timer = new Timer();
         protected int xSpeed = 1;
         protected int ySpeed = 1;
-        public int Size = 50;
+        public int Radius = 50;
         protected static Random random = new Random();
+        
         public Ball(Form form)
         {
             this.form = form;
+            timer.Interval = 100;
+            timer.Tick += Timer_Tick;
+        }
+        public void Draw(Brush brush)
+        {
+            var graphics = form.CreateGraphics();
+            var figure = new Rectangle(xPos - Radius, yPos - Radius, Radius, Radius);
+            graphics.FillEllipse(brush, figure);
         }
         public void Show()
         {
-            var graphics = form.CreateGraphics();
             var brush = Brushes.LimeGreen;
-            var figure = new Rectangle(xPos, yPos, Size, Size);
-            graphics.FillEllipse(brush, figure);
+            Draw(brush);
         }
         public void Move()
         {
@@ -32,17 +40,15 @@ namespace Ball_Class
         }
         public void Clear()
         {
-            var graphics = form.CreateGraphics();
             var brush = Brushes.White;
-            var figure = new Rectangle(xPos, yPos, Size, Size);
-            graphics.FillEllipse(brush, figure);
+            Draw(brush);
         }
         public int CheckLocations(List<MoveBall> list)
         {
             int result = 0;
             foreach (var i in list)
             {
-                if (form.ClientSize.Width - i.Size / 2 >= i.xPos && i.Size / 2 <= i.xPos && form.ClientSize.Height - i.Size / 2 >= i.yPos && i.Size / 2 <= i.yPos)
+                if (form.ClientSize.Width - i.Radius / 2 >= i.xPos && i.Radius / 2 <= i.xPos && form.ClientSize.Height - i.Radius / 2 >= i.yPos && i.Radius / 2 <= i.yPos)
                 {
                     result++;
                 }
@@ -51,11 +57,33 @@ namespace Ball_Class
         }
         public bool CheckCatched(int x, int y)
         {
-            if ((xPos - x) * (xPos - x) + (yPos - y) * (yPos - y) <= Size * Size)
+            if ((xPos - x) * (xPos - x) + (yPos - y) * (yPos - y) <= Radius * Radius)
             {
                 return true;
             }
             return false;
+        }
+
+        public void Timer_Tick(object sender, System.EventArgs e)
+        {
+            Clear();
+            Move();
+            Show();
+        }
+
+        public void Start()
+        {
+            timer.Enabled = true;
+        }
+
+        public void Stop()
+        {
+            timer.Enabled = false;
+        }
+
+        public bool CheckMove()
+        {
+            return timer.Enabled;
         }
     }
 }
