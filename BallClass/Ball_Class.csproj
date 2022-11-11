@@ -48,6 +48,7 @@
     <Compile Include="BallRandomMouseClick.cs" />
     <Compile Include="BallRandomSizable.cs" />
     <Compile Include="BallRandomSizableSpeed.cs" />
+    <Compile Include="BylliardBall.cs" />
     <Compile Include="MoveBall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -33,7 +33,7 @@ namespace Ball_Class
             var brush = Brushes.LimeGreen;
             Draw(brush);
         }
-        public void Move()
+        public virtual void Move()
         {
             xPos += xSpeed;
             yPos += ySpeed;

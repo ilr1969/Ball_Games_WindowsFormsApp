@@ -2,6 +2,7 @@
 
 namespace Ball_Class
 {
+
     public class MoveBall : BallRandomSizableSpeed
     {
         public MoveBall(Form form) : base(form)
