@@ -7,7 +7,7 @@ namespace Ball_Class
     {
         public BallRandomSizable(Form form) : base(form)
         {
-            Radius = random.Next(10, 50);
+            Radius = random.Next(30, 80);
         }
         
     }
