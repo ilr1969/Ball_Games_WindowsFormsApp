@@ -7,8 +7,8 @@ namespace BallClass
     {
         public BallRandom(Form form) : base(form)
         {
-            xPos = random.Next(0, 600);
-            yPos = random.Next(0, 400);
+            xPos = random.Next(0 + Radius, form.ClientSize.Width - Radius);
+            yPos = random.Next(0 + Radius, form.ClientSize.Height - Radius);
         }
     }
 }
