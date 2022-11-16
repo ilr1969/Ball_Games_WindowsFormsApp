@@ -7,8 +7,8 @@ namespace Ball_Class
     {
         public MoveBall(Form form) : base(form)
         {
-            xSpeed += random.Next(-15, 15);
-            ySpeed += random.Next(-15, 15);
+            xSpeed = random.Next(-10, 10);
+            ySpeed = random.Next(-10, 10);
         }
     }
 }

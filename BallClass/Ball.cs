@@ -8,11 +8,11 @@ namespace Ball_Class
     public class Ball
     {
         public Form form;
-        protected int xPos = 150;
-        protected int yPos = 150;
+        protected float xPos = 150;
+        protected float yPos = 150;
         protected Timer timer = new Timer();
-        protected int xSpeed = 1;
-        protected int ySpeed = 1;
+        protected float xSpeed = 1;
+        protected float ySpeed = 1;
         protected int Radius = 50;
         protected static Random random = new Random();
         public Brush brush = Brushes.LimeGreen;
@@ -26,7 +26,7 @@ namespace Ball_Class
         public virtual void Draw(Brush brush)
         {
             var graphics = form.CreateGraphics();
-            var figure = new Rectangle(xPos - Radius, yPos - Radius, Radius, Radius);
+            var figure = new RectangleF(xPos - Radius, yPos - Radius, Radius, Radius);
             graphics.FillEllipse(brush, figure);
         }
         public void Show()
