@@ -6,8 +6,8 @@ namespace Ball_Class
     {
         public BallRandomMouseClick(Form form, int x, int y) : base(form)
         {
-            xPos = x - Radius;
-            yPos = y - Radius;
+            xPos = x + Radius / 2;
+            yPos = y + Radius / 2;
         }
     }
 }

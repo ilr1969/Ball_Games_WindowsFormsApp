@@ -47,7 +47,7 @@ namespace Diffusion_WindowsFormsApp
 
         private void CreateDiffusionBallsRight(int StartPos, int EndPos)
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 10; i++)
             {
                 diffusion = new Diffusion(this, StartPos, EndPos);
                 diffusion.onHited += Diffusion_onHited1;
@@ -58,7 +58,7 @@ namespace Diffusion_WindowsFormsApp
 
         private void CreateDiffusionBallsLeft(int StartPos, int EndPos)
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 10; i++)
             {
                 diffusion = new Diffusion(this, StartPos, EndPos);
                 diffusion.onHited += Diffusion_onHited2;
