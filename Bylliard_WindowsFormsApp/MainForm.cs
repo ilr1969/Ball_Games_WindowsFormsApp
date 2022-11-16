@@ -17,7 +17,7 @@ namespace Bylliard_WindowsFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 15; i++)
             {
                 bylliardBall = new BylliardBall(this);
                 list.Add(bylliardBall);

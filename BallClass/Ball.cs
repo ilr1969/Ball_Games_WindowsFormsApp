@@ -8,13 +8,14 @@ namespace Ball_Class
     public class Ball
     {
         public Form form;
-        public int xPos = 150;
-        public int yPos = 150;
-        public Timer timer = new Timer();
+        protected int xPos = 150;
+        protected int yPos = 150;
+        protected Timer timer = new Timer();
         protected int xSpeed = 1;
         protected int ySpeed = 1;
-        public int Radius = 50;
+        protected int Radius = 50;
         protected static Random random = new Random();
+        public Brush brush = Brushes.LimeGreen;
         
         public Ball(Form form)
         {
@@ -22,7 +23,7 @@ namespace Ball_Class
             timer.Interval = 100;
             timer.Tick += Timer_Tick;
         }
-        public void Draw(Brush brush)
+        public virtual void Draw(Brush brush)
         {
             var graphics = form.CreateGraphics();
             var figure = new Rectangle(xPos - Radius, yPos - Radius, Radius, Radius);
@@ -30,7 +31,6 @@ namespace Ball_Class
         }
         public void Show()
         {
-            var brush = Brushes.LimeGreen;
             Draw(brush);
         }
         public virtual void Move()
@@ -55,6 +55,46 @@ namespace Ball_Class
             }
             return result;
         }
+
+        public bool CheckSide(List<Ball> list)
+        {
+            int resultRedLeft = 0;
+            int resultLimeLeft = 0;
+            int resultRedRight = 0;
+            int resultLimeRight = 0;
+
+            foreach (var i in list)
+            {
+                if (i.LeftOfCenter() && i.brush == Brushes.Red)
+                {
+                    resultRedLeft++;
+                }
+                else if (i.LeftOfCenter() && i.brush == Brushes.LimeGreen)
+                {
+                    resultLimeLeft++;
+                }
+                else if (i.RightOfCenter() && i.brush == Brushes.Red)
+                {
+                    resultRedRight++;
+                }
+                else if (i.RightOfCenter() && i.brush == Brushes.LimeGreen)
+                {
+                    resultLimeRight++;
+                }
+            }
+            return resultRedLeft == resultRedRight && resultLimeLeft == resultLimeRight;
+        }
+
+        private bool LeftOfCenter()
+        {
+            return xPos < form.ClientSize.Width / 2 - Radius;
+        }
+
+        private bool RightOfCenter()
+        {
+            return xPos > form.ClientSize.Width / 2 + Radius;
+        }
+
         public bool CheckCatched(int x, int y)
         {
             if ((xPos - x) * (xPos - x) + (yPos - y) * (yPos - y) <= Radius * Radius)
