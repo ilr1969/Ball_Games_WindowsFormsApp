@@ -7,15 +7,20 @@ namespace Fruit_Ninja_WindowsFormsApp
     class FruitNinja : MoveBall
     {
         float g = 1F;
+        int randBomb;
         public FruitNinja(Form form) : base(form)
         {
             xSpeed /= 2;
             ySpeed = random.Next(-30, -15);
             yPos = form.ClientSize.Height + Radius;
-            brush = new SolidBrush(Color.FromArgb(random.Next(255), random.Next(255), random.Next(255)));
-            if (brush == Brushes.Black)
+            randBomb = random.Next(1, 100);
+            if (randBomb < 15)
             {
-                brush = Brushes.Red;
+                brush = Brushes.Black;
+            }
+            else
+            {
+                brush = new SolidBrush(Color.FromArgb(random.Next(255), random.Next(255), random.Next(255)));
             }
         }
         public override void Move()

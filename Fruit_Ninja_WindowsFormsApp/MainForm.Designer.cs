@@ -30,6 +30,7 @@ namespace Fruit_Ninja_WindowsFormsApp
         private void InitializeComponent()
         {
             this.ScoreLabel = new System.Windows.Forms.Label();
+            this.RestartButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ScoreLabel
@@ -42,12 +43,23 @@ namespace Fruit_Ninja_WindowsFormsApp
             this.ScoreLabel.TabIndex = 0;
             this.ScoreLabel.Text = "0";
             // 
+            // RestartButton
+            // 
+            this.RestartButton.Location = new System.Drawing.Point(13, 13);
+            this.RestartButton.Name = "RestartButton";
+            this.RestartButton.Size = new System.Drawing.Size(123, 23);
+            this.RestartButton.TabIndex = 1;
+            this.RestartButton.Text = "Перезапуск игры";
+            this.RestartButton.UseVisualStyleBackColor = true;
+            this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.ScoreLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
@@ -63,6 +75,7 @@ namespace Fruit_Ninja_WindowsFormsApp
         #endregion
 
         private System.Windows.Forms.Label ScoreLabel;
+        private System.Windows.Forms.Button RestartButton;
     }
 }
 

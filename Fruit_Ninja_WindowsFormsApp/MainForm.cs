@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Fruit_Ninja_WindowsFormsApp
@@ -42,6 +43,18 @@ namespace Fruit_Ninja_WindowsFormsApp
                     //ScoreLabel.Text = (Convert.ToInt32(ScoreLabel.Text) + 1).ToString();
                     i.Stop();
                     i.Clear();
+                    if (i.brush == Brushes.Black)
+                    {
+                        timer.Stop();
+                        foreach (var j in list)
+                        {
+                            j.Stop();
+                            j.Clear();
+                        }
+                        list.Clear();
+                        MessageBox.Show("Бабах!!!");
+                        break;
+                    }
                 }
             }
         }
@@ -49,6 +62,11 @@ namespace Fruit_Ninja_WindowsFormsApp
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
             CutFruit(e);
+        }
+
+        private void RestartButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
