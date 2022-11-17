@@ -29,7 +29,18 @@ namespace Salut_WindowsFormsApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.SalutButton1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // SalutButton1
+            // 
+            this.SalutButton1.Location = new System.Drawing.Point(669, 27);
+            this.SalutButton1.Name = "SalutButton1";
+            this.SalutButton1.Size = new System.Drawing.Size(102, 41);
+            this.SalutButton1.TabIndex = 0;
+            this.SalutButton1.Text = "Вылетает один и взрывается";
+            this.SalutButton1.UseVisualStyleBackColor = true;
+            this.SalutButton1.Click += new System.EventHandler(this.SalutButton1_Click);
             // 
             // MainForm
             // 
@@ -37,6 +48,7 @@ namespace Salut_WindowsFormsApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SalutButton1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -47,6 +59,8 @@ namespace Salut_WindowsFormsApp
         }
 
         #endregion
+
+        private System.Windows.Forms.Button SalutButton1;
     }
 }
 
