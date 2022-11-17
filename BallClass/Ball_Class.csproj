@@ -47,6 +47,7 @@
     <Compile Include="BallRandom.cs" />
     <Compile Include="BallRandomMouseClick.cs" />
     <Compile Include="BallRandomSizable.cs" />
+    <Compile Include="BallSalut.cs" />
     <Compile Include="BylliardBall.cs" />
     <Compile Include="Diffusion.cs" />
     <Compile Include="HitEventArgs.cs" />
