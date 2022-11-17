@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Ball_Class;
 
-namespace Salut_WindowsFormsApp
+namespace Ball_Class
 {
     public class BallSalut : MoveBall
     {
