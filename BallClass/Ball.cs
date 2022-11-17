@@ -97,7 +97,7 @@ namespace Ball_Class
 
         public bool CheckCatched(int x, int y)
         {
-            if ((xPos - x) * (xPos - x) + (yPos - y) * (yPos - y) <= Radius * Radius)
+            if ((xPos - x - Radius / 2) * (xPos - x - Radius / 2) + (yPos - y - Radius / 2) * (yPos - y - Radius / 2) <= Radius / 2 * Radius / 2)
             {
                 return true;
             }
