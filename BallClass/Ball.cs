@@ -8,11 +8,11 @@ namespace Ball_Class
     public class Ball
     {
         public Form form;
-        protected float xPos = 150;
-        protected float yPos = 150;
+        public float xPos = 150;
+        public float yPos = 150;
         protected Timer timer = new Timer();
         protected float xSpeed = 1;
-        protected float ySpeed = 1;
+        public float ySpeed = 1;
         protected int Radius = 50;
         protected static Random random = new Random();
         public Brush brush = Brushes.LimeGreen;
