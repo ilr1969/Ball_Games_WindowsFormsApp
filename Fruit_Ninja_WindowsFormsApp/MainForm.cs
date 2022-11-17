@@ -40,7 +40,7 @@ namespace Fruit_Ninja_WindowsFormsApp
             {
                 if (i.CheckCatched(e.X, e.Y))
                 {
-                    //ScoreLabel.Text = (Convert.ToInt32(ScoreLabel.Text) + 1).ToString();
+                    ScoreLabel.Text = (Convert.ToInt32(ScoreLabel.Text) + 1).ToString();
                     i.Stop();
                     i.Clear();
                     if (i.brush == Brushes.Black)
