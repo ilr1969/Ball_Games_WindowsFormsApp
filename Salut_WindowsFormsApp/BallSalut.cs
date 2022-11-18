@@ -8,7 +8,8 @@ namespace Salut_WindowsFormsApp
     public class BallSalut : MoveBall
     {
         public float g = 0.1F;
-        public BallSalut(Form form, int x, int y) : base(form)
+
+        public BallSalut(Form form, float x, float y) : base(form)
         {
             Radius = 20;
             xPos = x + Radius / 2;
@@ -16,13 +17,6 @@ namespace Salut_WindowsFormsApp
             xSpeed /= 4;
             ySpeed = -Math.Abs(ySpeed) / 2;
             brush = new SolidBrush(Color.FromArgb(random.Next(255), random.Next(255), random.Next(255)));
-        }
-        public BallSalut(Form form) : base(form)
-        {
-            Radius = 20;
-            yPos = form.ClientSize.Height;
-            xSpeed = 0;
-            ySpeed = random.Next(-8, -3);
         }
         public override void Move()
         {

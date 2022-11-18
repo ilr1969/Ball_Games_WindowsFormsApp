@@ -6,18 +6,10 @@ namespace Salut_WindowsFormsApp
     public partial class MainForm : Form
     {
         BallSalut ballSalut;
-        BallSalut ballSalutStart;
-        Timer timer = new Timer();
+        BallSalutStart ballSalutStart;
         public MainForm()
         {
             InitializeComponent();
-            timer.Interval = 10;
-            timer.Tick += Timer_Tick;
-        }
-        
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            CheckTopPosition(ballSalutStart);
         }
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
@@ -27,7 +19,7 @@ namespace Salut_WindowsFormsApp
 
         private void StartSalut(int x, int y)
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 2; i++)
             {
                 ballSalut = new BallSalut(this, x, y);
                 ballSalut.Start();
@@ -36,19 +28,18 @@ namespace Salut_WindowsFormsApp
 
         private void SalutButton1_Click(object sender, EventArgs e)
         {
-            ballSalutStart = new BallSalut(this);
+            ballSalutStart = new BallSalutStart(this);
+            ballSalutStart.TopReached += ballSalutStart_TopReached;
             ballSalutStart.Start();
-            timer.Start();
+            
         }
 
-        private void CheckTopPosition(BallSalut ballSalutStart)
+        private void ballSalutStart_TopReached(object sender, TopReachedEventArgs e)
         {
-            if (ballSalutStart.ySpeed < 1 && ballSalutStart.ySpeed > -1)
+            for (int i = 0; i < 2; i++)
             {
-                ballSalutStart.Stop();
-                timer.Stop();
-                StartSalut((int)ballSalutStart.xPos, (int)ballSalutStart.yPos);
-                ballSalutStart.Clear();
+                ballSalut = new BallSalut(this, e.xPos, e.yPos);
+                ballSalut.Start();
             }
         }
     }

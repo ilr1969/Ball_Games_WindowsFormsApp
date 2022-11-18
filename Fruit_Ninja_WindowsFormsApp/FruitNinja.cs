@@ -13,6 +13,7 @@ namespace Fruit_Ninja_WindowsFormsApp
             xSpeed /= 2;
             ySpeed = random.Next(-30, -15);
             yPos = form.ClientSize.Height + Radius;
+            timer.Interval = 30;
             randBomb = random.Next(1, 100);
             if (randBomb < 15)
             {
