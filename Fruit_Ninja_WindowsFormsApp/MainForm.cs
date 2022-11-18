@@ -9,19 +9,24 @@ namespace Fruit_Ninja_WindowsFormsApp
     {
         List<FruitNinja> list = new List<FruitNinja>();
         Timer timer = new Timer();
+        FruitNinja fruitNinja;
+        Random random = new Random();
         public MainForm()
         {
             InitializeComponent();
-            timer.Interval = 500;
+            timer.Interval = random.Next(1000, 3000);
             timer.Tick += Timer_Tick;
             timer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            FruitNinja fruitNinja = new FruitNinja(this);
-            list.Add(fruitNinja);
-            fruitNinja.Start();
+            for (int i = 0; i < 4; i++)
+            {
+                fruitNinja = new FruitNinja(this);
+                list.Add(fruitNinja);
+                fruitNinja.Start();
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -38,11 +43,10 @@ namespace Fruit_Ninja_WindowsFormsApp
         {
             foreach (var i in list)
             {
-                if (i.CheckCatched(e.X, e.Y))
+                if (i.CheckMove() && i.CheckCatched(e.X, e.Y))
                 {
                     ScoreLabel.Text = (Convert.ToInt32(ScoreLabel.Text) + 1).ToString();
-                    i.Stop();
-                    i.Clear();
+
                     if (i.brush == Brushes.Black)
                     {
                         timer.Stop();
@@ -55,6 +59,20 @@ namespace Fruit_Ninja_WindowsFormsApp
                         MessageBox.Show("Бабах!!!");
                         break;
                     }
+                    if (i.brush == Brushes.Yellow)
+                    {
+                        foreach (var j in list)
+                        {
+                            j.timer.Interval = 50;
+                        }
+                    }
+                    i.Stop();
+                    i.Clear();
+                }
+                if (i.yPos > ClientSize.Height + i.Radius)
+                {
+                    i.Stop();
+                    i.Clear();
                 }
             }
         }

@@ -10,10 +10,10 @@ namespace Ball_Class
         public Form form;
         public float xPos = 150;
         public float yPos = 150;
-        protected Timer timer = new Timer();
+        public Timer timer = new Timer();
         protected float xSpeed = 1;
         public float ySpeed = 1;
-        protected int Radius = 50;
+        public int Radius = 50;
         protected static Random random = new Random();
         public Brush brush = Brushes.LimeGreen;
         
