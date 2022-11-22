@@ -20,7 +20,7 @@ namespace Ball_Class
         public Ball(Form form)
         {
             this.form = form;
-            timer.Interval = 100;
+            timer.Interval = 15;
             timer.Tick += Timer_Tick;
         }
         public virtual void Draw(Brush brush)
