@@ -36,7 +36,7 @@ namespace Salut_WindowsFormsApp
 
         private void ballSalutStart_TopReached(object sender, TopReachedEventArgs e)
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 10; i++)
             {
                 ballSalut = new BallSalut(this, e.xPos, e.yPos);
                 ballSalut.Start();
