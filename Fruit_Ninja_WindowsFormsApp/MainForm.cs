@@ -9,14 +9,24 @@ namespace Fruit_Ninja_WindowsFormsApp
     {
         List<FruitNinja> list = new List<FruitNinja>();
         Timer timer = new Timer();
+        Timer timerForSlowMotion = new Timer();
         FruitNinja fruitNinja;
         Random random = new Random();
+        private int Interval = 30;
         public MainForm()
         {
             InitializeComponent();
             timer.Interval = random.Next(1000, 3000);
             timer.Tick += Timer_Tick;
             timer.Start();
+            timerForSlowMotion.Interval = 5000;
+            timerForSlowMotion.Tick += TimerForSlowMotion_Tick;
+        }
+
+        private void TimerForSlowMotion_Tick(object sender, EventArgs e)
+        {
+            Interval = 30;
+            timerForSlowMotion.Stop();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -24,6 +34,7 @@ namespace Fruit_Ninja_WindowsFormsApp
             for (int i = 0; i < 4; i++)
             {
                 fruitNinja = new FruitNinja(this);
+                fruitNinja.timer.Interval = Interval;
                 list.Add(fruitNinja);
                 fruitNinja.Start();
             }
@@ -46,7 +57,7 @@ namespace Fruit_Ninja_WindowsFormsApp
                 if (i.CheckMove() && i.CheckCatched(e.X, e.Y))
                 {
                     ScoreLabel.Text = (Convert.ToInt32(ScoreLabel.Text) + 1).ToString();
-
+                    CheckYellowBall(i);
                     if (i.brush == Brushes.Black)
                     {
                         timer.Stop();
@@ -59,13 +70,6 @@ namespace Fruit_Ninja_WindowsFormsApp
                         MessageBox.Show("Бабах!!!");
                         break;
                     }
-                    if (i.brush == Brushes.Yellow)
-                    {
-                        foreach (var j in list)
-                        {
-                            j.timer.Interval = 50;
-                        }
-                    }
                     i.Stop();
                     i.Clear();
                 }
@@ -74,6 +78,19 @@ namespace Fruit_Ninja_WindowsFormsApp
                     i.Stop();
                     i.Clear();
                 }
+            }
+        }
+
+        private void CheckYellowBall(FruitNinja i)
+        {
+            if (i.brush == Brushes.Yellow)
+            {
+                foreach (var j in list)
+                {
+                    j.timer.Interval = 50;
+                }
+                Interval = 50;
+                timerForSlowMotion.Start();
             }
         }
 
